@@ -1,15 +1,15 @@
 import dayjs from "dayjs";
 import { Fragment } from "react";
-import axios from "axios";
 import { Link } from "react-router";
 import BuyAgainIcon from "../../assets/images/icons/buy-again.png";
+import api from "../../lib/api";
 
 export function OrderDetailsGrid({ order, loadCart }) {
   return (
     <div className="order-details-grid">
       {order.products.map((orderProduct) => {
         const addToCart = async () => {
-          await axios.post("/api/cart-items", {
+          await api.post("/api/cart-items", {
             productId: orderProduct.product.id,
             quantity: 1,
           });

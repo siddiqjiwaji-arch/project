@@ -1,13 +1,13 @@
-import axios from "axios";
 import { useState } from "react";
 import { formatMoney } from "../../utils/money";
+import api from "../../lib/api";
 
 export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
 
   const addToCart = async () => {
-    await axios.post("/api/cart-items", {
+    await api.post("/api/cart-items", {
       productId: product.id,
       quantity,
     });
