@@ -51,6 +51,11 @@ export function Header({ cart }) {
           data-testid="header-search-bar"
           value={search}
           onChange={updateSearchInput}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              searchProducts();
+            }
+          }}
         />
 
         <button
